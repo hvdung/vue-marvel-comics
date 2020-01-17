@@ -2,7 +2,6 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
       dark
     >
       <div class="d-flex align-center">
@@ -27,34 +26,28 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn text>
+        <router-link :to="{ name: 'Home' }" class="color-white">Home</router-link>
+      </v-btn>
+      <v-btn text>
+        <router-link :to="{ name: 'Comics' }" class="color-white">Comics</router-link>
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+  name: 'App'
 };
 </script>
+<style>
+.color-white {
+  color: #fff !important;
+  text-decoration: none;
+}
+</style>
